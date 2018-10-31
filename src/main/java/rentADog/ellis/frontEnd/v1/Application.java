@@ -1,16 +1,15 @@
-package ellis.rentADogDB.frontEnd;
+package rentADog.ellis.frontEnd.v1;
 
-import java.util.Arrays;
-
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import static org.springframework.boot.SpringApplication.run;
 
 @SpringBootApplication
 public class Application {
 
     public static void main(String[] args) throws Throwable
     {
-        SpringApplication.run(Application.class, args);
+        run(Application.class, args);
     }
 
 }
