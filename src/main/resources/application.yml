@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+    datasource:
+      url: jdbc:h2:mem:mydb
+
+  devtools:
+    restart:
+      exclude: META-INF/maven/**,META-INF/resources/**,resources/**,public/**,**/*Test.class,**/*Tests.class
+  thymeleaf:
+    cache: false
+  jpa.generate-ddl: true
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: DEBUG
+
+security:
+  basic:
+    enabled: false
