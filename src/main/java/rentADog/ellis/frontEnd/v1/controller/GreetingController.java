@@ -13,4 +13,10 @@ public class GreetingController {
     public String home() {
         return "home";
     }
+
+    @RequestMapping(value = "/addDog", method = RequestMethod.GET)
+    public String addDog()
+    {
+        return "addDog";
+    }
 }

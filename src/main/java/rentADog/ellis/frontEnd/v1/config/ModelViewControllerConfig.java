@@ -9,7 +9,8 @@ public class ModelViewControllerConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("templates/home");
+        registry.addViewController("/").setViewName("home");
+        registry.addViewController("/addDog").setViewName("addDog");
     }
 
 }
