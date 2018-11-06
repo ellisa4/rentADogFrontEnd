@@ -17,31 +17,31 @@
      </div>
 
     <div id="addDogForm">
-        <form method="post" th:action="@{/addDog}" th:object="${Dog}" name="add a Dog">
+        <form method="post" th:action="@{/addDog}" th:object="${addDog}" name="add a Dog">
             <table>
                 <tr>
                     <td>ID Number: </td>
-                    <td><input type="text" name="idIn"></input></td>
+                    <td><input type="text" name="idIn" th:field="*{idNumber}"></input></td>
                 </tr>
 
                 <tr>
                     <td>Name: </td>
-                    <td><input type="text" name="nameIn"></input></td>
+                    <td><input type="text" name="nameIn" th:field="*{name}"></input></td>
                 </tr>
 
                 <tr>
                     <td>Gender: </td>
-                    <td><input type="text" name="genderIn"></input></td>
+                    <td><input type="text" name="genderIn" th:field="*{gender}"></input></td>
                 </tr>
 
                 <tr>
                     <td>Breed: </td>
-                    <td><input type="text" name="breedIn"></input></td>
+                    <td><input type="text" name="breedIn" th:field="*{breed}"></input></td>
                 </tr>
 
                 <tr>
                     <td>Age: </td>
-                    <td><input type="number" name="ageIn" ></input></td>
+                    <td><input type="number" name="ageIn" th:field="*{age}"></input></td>
                 </tr>
 
                 <tr>
