@@ -1,6 +1,9 @@
 package rentADog.ellis.frontEnd.v1.domain;
 
 
+import java.io.IOException;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Dog {
@@ -10,8 +13,21 @@ public class Dog {
     private String gender;
     private String breed;
     private String name;
+    private byte[] image;
 
-    public Dog(int idNumber, String name, String gender, String breed, int age)
+    /**
+    public Dog(int idNumber, String name, String gender, String breed, int age, Blob image) {
+        personality = new ArrayList<String>();
+        this.idNumber = idNumber;
+        this.age = age;
+        this.gender = gender.toLowerCase();
+        this.breed = breed.toLowerCase();
+        this.name = name.toLowerCase();
+        this.image = image;
+    }
+     **/
+
+    public Dog(int idNumber, String name, String gender, String breed, int age, byte[] img)
     {
         personality= new ArrayList<String>();
         this.idNumber = idNumber;
@@ -19,6 +35,7 @@ public class Dog {
         this.gender=gender.toLowerCase();
         this.breed=breed.toLowerCase();
         this.name=name.toLowerCase();
+        this.image=img;
     }
 
     public int getIdNumber()
@@ -78,6 +95,15 @@ public class Dog {
                 + getGender() + ", "
                 + getBreed() + ", "
                 + getName();
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image)
+    {
+        this.image=image;
     }
 
 }
