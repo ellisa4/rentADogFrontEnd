@@ -17,7 +17,7 @@
      </div>
 
     <div id="addDogForm">
-        <form method="post" th:action="@{/addDog}" th:object="${addDog}" name="add a Dog">
+        <form method="post" th:action="@{/addDog}" th:object="${Dog}" name="add a Dog">
             <table>
                 <tr>
                     <td>ID Number: </td>
@@ -46,7 +46,7 @@
 
                 <tr>
                     <td>Pictures: </td>
-                    <td><input type="file" name="picturesIn" accept="image/*"/></td>
+                    <td><input type="file" name="picturesIn" accept="image/*" th:field="*{image}"/></td>
                 </tr>
             </table>
             <input type="submit" id="submitButton" name="submit"/>

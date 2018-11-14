@@ -24,14 +24,15 @@ public class DogDatabase {
         }
     }
 
-    public void addDog(int idNumber, String name, String gender, String breed, int age)
+    public void addDog(int idNumber, String name, String gender, String breed, int age, byte[] image)
     {
         String query = "INSERT INTO dogs VALUES ("
                 + idNumber + ", "
                 + age + ", "
                 + "'" + gender + "', "
                 + "'" +breed + "', "
-                + "'" +name + "');";
+                + "'" +name + "',"
+                + "'" +image + "');";
 
         try
         {
@@ -75,8 +76,9 @@ public class DogDatabase {
                 String gender = result.getString("gender");
                 String breed = result.getString("breed");
                 String name = result.getString("name");
+                byte[] image = result.getBytes("image");
 
-                returnMe = new Dog(id, name, gender, breed, age);
+                returnMe = new Dog(id, name, gender, breed, age, image);
             } else
             {
                 System.out.println("No match found");
