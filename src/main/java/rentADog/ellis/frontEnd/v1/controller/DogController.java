@@ -6,14 +6,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import rentADog.ellis.frontEnd.v1.domain.Dog;
 import rentADog.ellis.frontEnd.v1.domain.DogDatabase;
-import java.sql.Blob;
-import java.sql.SQLException;
 
 @Controller
-public class AddDogController {
+public class DogController {
 
     private DogDatabase database = new DogDatabase();
 
@@ -38,6 +35,20 @@ public class AddDogController {
 
 
         return "addedDog";
+    }
+
+    @RequestMapping(value = "/getDog", method = RequestMethod.GET)
+    public String getGetDog(Model model)
+    {
+        model.addAttribute("dog", new Dog(0, "", "", "", 0, null));
+        return "getDog";
+    }
+
+    @RequestMapping(value = "/gotDog", method = RequestMethod.GET)
+    public String getGotDog(Model model, @RequestParam int idNumber)
+    {
+        model.addAttribute(database.getDog(idNumber));
+        return "gotDog";
     }
 
 }

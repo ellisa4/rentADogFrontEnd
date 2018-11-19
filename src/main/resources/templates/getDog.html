@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Got Dog</title>
+</head>
+
+<body>
+    <form action="gotDog" method="get" th:object="${dog}">
+        <table>
+            <tr>
+                <td>Id Number: </td>
+                <td><input type="number" name="idNumber" /></td>
+            </tr>
+        </table>
+        <input type="submit" />
+    </form>
+</body>
+</html>
