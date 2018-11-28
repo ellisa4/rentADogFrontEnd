@@ -103,6 +103,10 @@ public class DogDatabase {
                 boolean available = result.getBoolean("available");
 
                 returnMe = new Dog(id, name, gender, breed, age, image, available);
+                if (result.getString("reservedBy")!="")
+                {
+                    returnMe.setReservedBy(result.getString("reservedBy"));
+                }
             } else
             {
                 System.out.println("No match found");
@@ -115,9 +119,28 @@ public class DogDatabase {
 
     }
 
-    public void changeReservedBy(int dogID, String clientName)
+    public void changeReserved(int dogID, String clientName, Boolean status)
     {
-        getDog(dogID).setReservedBy(clientName);
+        Dog temp = getDog(dogID);
+        removeDog(temp.getIdNumber());
+
+        String query = "INSERT INTO dogs VALUES ("
+                + temp.getIdNumber()+ ", "
+                + temp.getAge()+ ", "
+                + "'" + temp.getGender()+ "', "
+                + "'" +temp.getBreed()+ "', "
+                + "'" +temp.getName()+ "',"
+                + "'" +temp.getImage()+ "', "
+                + status + ", "
+                + "'" + clientName + "');";
+
+        try
+        {
+            stmt.executeQuery(query);
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     public String getReservedBy(int dogID)

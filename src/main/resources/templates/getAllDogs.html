@@ -30,6 +30,10 @@
                     <td>Available: </td>
                     <td th:text="${dog.available}"></td>
                 </tr>
+                <tr th:if="${dog.available} == false">
+                    <td>Reserved By: </td>
+                    <td th:text="${dog.reservedBy}"></td>
+                </tr>
                 <br>
             </table>
         </div>

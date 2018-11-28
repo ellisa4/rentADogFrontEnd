@@ -35,10 +35,10 @@ public class RentalController {
     @RequestMapping(value = "/reserveDog", method = RequestMethod.GET)
     public String getReserveDog(@RequestParam int dogId, @RequestParam int clientId)
     {
-        database.getDog(dogId).setAvailable(false);
-        database.changeReservedBy(
+        database.changeReserved(
                 dogId,
-                clientDatabase.getFirstName(clientId)
+                clientDatabase.getFirstName(clientId),
+                false
         );
 
         return "reserveDog";
