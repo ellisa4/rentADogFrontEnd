@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>All Dogs</title>
+    
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/global.css}" />
 </head>
 
 <body>
+	<div id="header">
+        <h2>Rent-A-Dog</h2>
+     </div>
+	<div id="navbar">
+		<ul>
+			<li><a th:href="@{/home}">home</a></li>
+            <li>Dogs
+				<ul>
+					<li><a th:href="@{/addDog}">Add Dog</a></li>
+					<li><a th:href="@{/getDog}">Get Dog</a></li>
+					<li><a th:href="@{/allDogs}">All Dogs</a></li>
+					<li><a th:href="@{/rentDog}">Reserve a Dog</a></li>
+				</ul>
+			</li>
+			<li>Clients:
+                <ul>
+					<li><a th:href="@{/addClient}">Add Client</a></li>
+					<li><a th:href="@{/getClient}">Get Client</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
 
     <th:block th:each="dog : ${dogs}">
         <div id="Dogs">

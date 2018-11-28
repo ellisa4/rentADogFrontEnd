@@ -55,7 +55,7 @@ public class DogDatabase {
                 + "'" +breed + "', "
                 + "'" +name + "',"
                 + "'" +image + "', "
-                + available + ");";
+                + available + ", '' );";
 
         try
         {
