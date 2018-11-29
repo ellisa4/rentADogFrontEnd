@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Got Client</title>
+</head>
+
+<body>
+    <p th:text="'Name: ' + *{client.firstName} + ' ' +*{client.lastName}"></p>
+    <p th:text="'Age: ' + *{client.age}"></p>
+    <p th:text="'Birthday: ' + *{client.monthBorn}+'/'+*{client.dayBorn} + '/' + *{client.yearBorn}"></p>
+    <p th:text="'License Number: ' + *{client.licenseNum}"></p>
+    <p th:text="'Address: ' + *{client.street}+', '+*{client.state} + ' ' + *{client.zipCode}"></p>
+</body>
+</html>

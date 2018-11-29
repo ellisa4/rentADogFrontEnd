@@ -85,8 +85,8 @@ public class ClientDatabase {
 				returnMe = new Client(
 						rs.getString("firstName"),
 						rs.getString("lastName"),
-						rs.getInt("dayBorn"),
 						rs.getInt("monthBorn"),
+						rs.getInt("dayBorn"),
 						rs.getInt("yearBorn"),
 						encrypter.decrypt(rs.getString("licenseNum")),
 						rs.getString("street"),

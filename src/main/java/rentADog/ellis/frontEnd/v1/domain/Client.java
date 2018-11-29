@@ -80,7 +80,7 @@ public class Client {
 		
 		return Integer.parseInt(age.substring(0,2));
 	}
-	public int getyearBorn()
+	public int getYearBorn()
 	{
 		return yearBorn;
 	}

@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import rentADog.ellis.frontEnd.v1.domain.Client;
 import rentADog.ellis.frontEnd.v1.domain.ClientDatabase;
 
@@ -25,7 +26,7 @@ public class ClientController {
         client.setAge(
                 client.getMonthBorn(),
                 client.getDayBorn(),
-                client.getyearBorn()
+                client.getYearBorn()
         );
 
         database.addClient(
@@ -33,7 +34,7 @@ public class ClientController {
                 client.getLastName(),
                 client.getMonthBorn(),
                 client.getDayBorn(),
-                client.getyearBorn(),
+                client.getYearBorn(),
                 client.getLicenseNum(),
                 client.getStreet(),
                 client.getCity(),
@@ -41,5 +42,21 @@ public class ClientController {
                 client.getZipCode()
         );
         return "addedClient";
+    }
+
+    @RequestMapping(value = "/getClient", method = RequestMethod.GET)
+    public String getGetDog(Model model)
+    {
+        model.addAttribute("Client", new Client("", "", 6, 2, 1998, "", "", "", "", 0));
+        return "getClient";
+    }
+
+    @RequestMapping(value = "/gotClient", method = RequestMethod.GET)
+    public String getGotDog(Model model, @RequestParam int idNumber) throws Exception
+    {
+        Client client = database.getClient(idNumber);
+        model.addAttribute(client);
+
+        return "gotClient";
     }
 }
