@@ -1,5 +1,8 @@
 package rentADog.ellis.frontEnd.v1.controller;
 
+import javax.imageio.ImageIO;
+import java.io.*;
+import java.awt.image.BufferedImage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -45,9 +48,25 @@ public class DogController {
     }
 
     @RequestMapping(value = "/gotDog", method = RequestMethod.GET)
-    public String getGotDog(Model model, @RequestParam int idNumber)
+    public String getGotDog(Model model, @RequestParam int idNumber) throws Exception
     {
-        model.addAttribute(database.getDog(idNumber));
+        Dog dog = database.getDog(idNumber);
+        ByteArrayInputStream stream = new ByteArrayInputStream(dog.getImage());
+        System.out.println(stream);
+
+        int i = 0;
+        byte[] in = dog.getImage();
+        while(i < in.length)
+        {
+            System.out.println(in[i]);
+            ++i;
+        }
+
+        BufferedImage image = ImageIO.read(stream);
+        /**
+        ImageIO.write(image, "jpg", new File("image.jpg"));
+         **/
+        model.addAttribute(dog);
         return "gotDog";
     }
 

@@ -76,7 +76,7 @@ public class DogDatabase {
                 String gender = result.getString("gender");
                 String breed = result.getString("breed");
                 String name = result.getString("name");
-                byte[] image = result.getBytes("image");
+                byte[] image = result.getString("image").getBytes();
 
                 returnMe = new Dog(id, name, gender, breed, age, image);
             } else
