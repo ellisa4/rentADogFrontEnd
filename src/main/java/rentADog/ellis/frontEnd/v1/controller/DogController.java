@@ -74,11 +74,12 @@ public class DogController {
     public String getAllDogs(Model model)
     {
         int[] ids = database.getAllIDs();
+        Dog[] dogs = {};
         for(int i = 0; i < ids.length; ++i)
         {
-            String modelName = "dog" + i;
-            model.addAttribute(modelName, database.getDog(ids[i]));
+            dogs[i] = database.getDog(ids[i]);
         }
+        model.addAttribute("dogs", dogs);
 
         return "getAllDogs";
     }
