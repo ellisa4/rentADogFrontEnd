@@ -70,4 +70,17 @@ public class DogController {
         return "gotDog";
     }
 
+    @RequestMapping(value = "/allDogs", method = RequestMethod.GET)
+    public String getAllDogs(Model model)
+    {
+        int[] ids = database.getAllIDs();
+        for(int i = 0; i < ids.length; ++i)
+        {
+            String modelName = "dog" + i;
+            model.addAttribute(modelName, database.getDog(ids[i]));
+        }
+
+        return "getAllDogs";
+    }
+
 }

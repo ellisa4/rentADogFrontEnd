@@ -24,6 +24,24 @@ public class DogDatabase {
         }
     }
 
+    public int[] getAllIDs()
+    {
+        int[] returnMe = {};
+        try {
+            ResultSet result = stmt.executeQuery("SELECT * FROM dogs;");
+            int i=0;
+            while (result.next())
+            {
+                returnMe[i] = result.getInt("idNumber");
+                ++i;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return returnMe;
+    }
+
     public void addDog(int idNumber, String name, String gender, String breed, int age, byte[] image)
     {
         String query = "INSERT INTO dogs VALUES ("
