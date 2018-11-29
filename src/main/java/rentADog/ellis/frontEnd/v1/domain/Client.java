@@ -30,7 +30,7 @@ public class Client {
 		this.zipCode=zipCode;
 	}
 	
-	private int setAge(int month, int day, int year)
+	public int setAge(int month, int day, int year)
 	{
 		String age = "";
 		String currentDay = "";
@@ -105,7 +105,7 @@ public class Client {
 		return lastName;
 	}
 	
-	public String getLicense()
+	public String getLicenseNum()
 	{
 		return licenseNum;
 	}

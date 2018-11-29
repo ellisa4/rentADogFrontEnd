@@ -2,7 +2,6 @@ package rentADog.ellis.frontEnd.v1.domain;
 
 import rentADog.ellis.frontEnd.v1.drivers.Encrypter;
 import rentADog.ellis.frontEnd.v1.drivers.sqlConnector;
-import rentADog.ellis.frontEnd.v1.domain.Client;
 
 import java.sql.*;
 
@@ -134,7 +133,7 @@ public class ClientDatabase {
 	
 	public String getLicenseNumber(int id)
 	{
-		return getClient(id).getLicense();
+		return getClient(id).getLicenseNum();
 	}
 	
 	public String getStreet(int id)

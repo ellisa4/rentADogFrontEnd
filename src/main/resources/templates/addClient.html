@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Client</title>
+</head>
+
+<body>
+    <form method="post" th:action="@{/addClient}" th:object="${Client}">
+        <table>
+            <tr>
+                <td>First Name: </td>
+                <td><input type="text" name="fNameIn" th:field="*{firstName}" required="required"/></td>
+            </tr>
+            <tr>
+                <td>Last Name: </td>
+                <td><input type="text" name="lNameIn" th:field="*{lastName}" required="required"/></td>
+            </tr>
+            <tr>
+                <td>Month Born: </td>
+                <td><input type="number" name="monthBorn" th:field="*{monthBorn}" required="required"/></td>
+            </tr>
+            <tr>
+                <td>Day Born: </td>
+                <td><input type="number" name="dayBorn" th:field="*{dayBorn}" required="required"/></td>
+            </tr>
+            <tr>
+                <td>Year Born: </td>
+                <td><input type="number" name="yearBorn" th:field="*{yearBorn}" required="required"/></td>
+            </tr>
+            <tr>
+                <td>License Number: </td>
+                <td><input type="text" name="license" th:field="*{licenseNum}" required="required"/></td>
+            </tr>
+            <tr>
+                <td>Street: </td>
+                <td><input type="text" name="street" th:field="*{street}" required="required"/></td>
+            </tr>
+            <tr>
+                <td>City: </td>
+                <td><input type="text" name="city" th:field="*{city}" required="required"/></td>
+            </tr>
+            <tr>
+                <td>State: </td>
+                <td><input type="text" name="state" th:field="*{state}" required="required"/></td>
+            </tr>
+            <tr>
+                <td>Zip Code: </td>
+                <td><input type="number" name="zipCode" th:field="*{zipCode}" required="required"/></td>
+            </tr>
+        </table>
+        <input type="submit">
+    </form>
+</body>
+</html>
