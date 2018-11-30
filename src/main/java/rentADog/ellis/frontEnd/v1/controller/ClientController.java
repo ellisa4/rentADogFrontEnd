@@ -16,7 +16,7 @@ public class ClientController {
     @RequestMapping(value = "/addClient", method = RequestMethod.GET)
     public String getAddClient(Model model)
     {
-        model.addAttribute("Client", new Client("", "", 6, 2, 1998, "", "", "", "", 0));
+        model.addAttribute("Client", new Client("", "", 6, 2, 1998, "", "", "", "", 0, ""));
         return "addClient";
     }
 
@@ -39,7 +39,8 @@ public class ClientController {
                 client.getStreet(),
                 client.getCity(),
                 client.getState(),
-                client.getZipCode()
+                client.getZipCode(),
+                client.getEmail()
         );
         return "addedClient";
     }
@@ -47,7 +48,7 @@ public class ClientController {
     @RequestMapping(value = "/getClient", method = RequestMethod.GET)
     public String getGetDog(Model model)
     {
-        model.addAttribute("Client", new Client("", "", 6, 2, 1998, "", "", "", "", 0));
+        model.addAttribute("Client", new Client("", "", 6, 2, 1998, "", "", "", "", 0, ""));
         return "getClient";
     }
 

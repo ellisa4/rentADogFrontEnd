@@ -14,8 +14,9 @@ public class Client {
 	private String city;
 	private String state;
 	private int zipCode;
+	private String email;
 
-	public Client(String firstName, String lastName, int monthBorn, int dayBorn, int yearBorn, String licenseNum, String street, String city, String state, int zipCode)
+	public Client(String firstName, String lastName, int monthBorn, int dayBorn, int yearBorn, String licenseNum, String street, String city, String state, int zipCode, String email)
 	{
 		this.firstName=firstName.toLowerCase();
 		this.lastName=lastName.toLowerCase();
@@ -28,6 +29,7 @@ public class Client {
 		this.city=city.toLowerCase();
 		this.state=state.toLowerCase();
 		this.zipCode=zipCode;
+		this.email=email;
 	}
 	
 	public int setAge(int month, int day, int year)
@@ -133,5 +135,10 @@ public class Client {
 	public int getZipCode()
 	{
 		return zipCode;
+	}
+
+	public String getEmail()
+	{
+		return email;
 	}
 }

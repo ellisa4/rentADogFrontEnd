@@ -28,9 +28,9 @@ public class ClientDatabase {
 		}
 	}
 	
-	public void addClient(String firstName, String lastName, int monthBorn, int dayBorn, int yearBorn, String licenseNum, String street, String city, String state, int zipCode)
+	public void addClient(String firstName, String lastName, int monthBorn, int dayBorn, int yearBorn, String licenseNum, String street, String city, String state, int zipCode, String email)
 	{
-		int age = new Client(firstName, lastName, monthBorn, dayBorn, yearBorn, licenseNum, street, city, state, zipCode).getAge();
+		int age = new Client(firstName, lastName, monthBorn, dayBorn, yearBorn, licenseNum, street, city, state, zipCode, email).getAge();
 		int id = (int) ((Math.random()*900000)+100000);
 		
 		//query will be to find the unique id
@@ -62,7 +62,8 @@ public class ClientDatabase {
 				+ "'" + street.toLowerCase() + "',"
 				+ "'" + city.toLowerCase() + "',"
 				+ "'" + state.toLowerCase() +"',"
-				+ zipCode + ");";
+				+ zipCode + ", "
+				+ "'" + email + "');";
 
 		try
 		{
@@ -92,7 +93,8 @@ public class ClientDatabase {
 						rs.getString("street"),
 						rs.getString("city"),
 						rs.getString("state"),
-						rs.getInt("zipcode")
+						rs.getInt("zipcode"),
+                        rs.getString("email")
 						);
 			} else
 			{
@@ -155,5 +157,10 @@ public class ClientDatabase {
 	{
 		return getClient(id).getZipCode();
 	}
-	
+
+	public String getEmail(int id)
+	{
+		return getClient(id).getEmail();
+	}
+
 }
