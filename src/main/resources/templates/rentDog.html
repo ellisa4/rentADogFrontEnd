@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent A Dog</title>
+</head>
+
+<body>
+    <h3>
+        All Available Dogs
+    </h3>
+
+    <th:block th:each="dog : ${dogs}">
+        <table th:if="${dog.available}==true">
+            <tr>
+                <td>Name: </td>
+                <td th:text="${dog.name}"></td>
+            </tr>
+            <tr>
+                <td>Gender: </td>
+                <td th:text="${dog.gender}"></td>
+            </tr>
+            <tr>
+                <td>Breed: </td>
+                <td th:text="${dog.breed}"></td>
+            </tr>
+            <tr>
+                <td>Age: </td>
+                <td th:text="${dog.age}"></td>
+            </tr>
+            <tr>
+                <td>Available: </td>
+                <td>True</td>
+            </tr>
+            <br/>
+        </table>
+    </th:block>
+</body>
+</html>
