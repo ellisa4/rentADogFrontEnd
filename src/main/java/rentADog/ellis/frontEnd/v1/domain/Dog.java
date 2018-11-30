@@ -14,6 +14,7 @@ public class Dog {
     private String breed;
     private String name;
     private byte[] image;
+    private boolean available;
 
     /**
     public Dog(int idNumber, String name, String gender, String breed, int age, Blob image) {
@@ -27,7 +28,7 @@ public class Dog {
     }
      **/
 
-    public Dog(int idNumber, String name, String gender, String breed, int age, byte[] img)
+    public Dog(int idNumber, String name, String gender, String breed, int age, byte[] img, boolean available)
     {
         personality= new ArrayList<String>();
         this.idNumber = idNumber;
@@ -36,6 +37,7 @@ public class Dog {
         this.breed=breed.toLowerCase();
         this.name=name.toLowerCase();
         this.image=img;
+        this.available = available;
     }
 
     public int getIdNumber()
@@ -106,4 +108,11 @@ public class Dog {
         this.image=image;
     }
 
+    public boolean getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
 }

@@ -46,7 +46,7 @@ public class DogDatabase {
         return returnMe;
     }
 
-    public void addDog(int idNumber, String name, String gender, String breed, int age, byte[] image)
+    public void addDog(int idNumber, String name, String gender, String breed, int age, byte[] image, boolean available)
     {
         String query = "INSERT INTO dogs VALUES ("
                 + idNumber + ", "
@@ -54,7 +54,8 @@ public class DogDatabase {
                 + "'" + gender + "', "
                 + "'" +breed + "', "
                 + "'" +name + "',"
-                + "'" +image + "');";
+                + "'" +image + "', "
+                + available + ");";
 
         try
         {
@@ -99,8 +100,9 @@ public class DogDatabase {
                 String breed = result.getString("breed");
                 String name = result.getString("name");
                 byte[] image = result.getString("image").getBytes();
+                boolean available = result.getBoolean("available");
 
-                returnMe = new Dog(id, name, gender, breed, age, image);
+                returnMe = new Dog(id, name, gender, breed, age, image, available);
             } else
             {
                 System.out.println("No match found");
@@ -171,6 +173,11 @@ public class DogDatabase {
     public String getGender(int idNumber)
     {
         return getDog(idNumber).getGender();
+    }
+
+    public Boolean getAvailable(int idNumber)
+    {
+        return getDog(idNumber).getAvailable();
     }
 
 }

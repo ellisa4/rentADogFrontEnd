@@ -22,7 +22,7 @@ public class DogController {
     @RequestMapping(value = "/addDog", method = RequestMethod.GET)
     public String getAddDog(Model model)
     {
-        model.addAttribute("Dog", new Dog(0, "", "", "", 0, null));
+        model.addAttribute("Dog", new Dog(0, "", "", "", 0, null, false));
         return "addDog";
     }
 
@@ -35,7 +35,8 @@ public class DogController {
                 dog.getGender(),
                 dog.getBreed(),
                 dog.getAge(),
-                dog.getImage()
+                dog.getImage(),
+                dog.getAvailable()
         );
 
 
@@ -45,7 +46,7 @@ public class DogController {
     @RequestMapping(value = "/getDog", method = RequestMethod.GET)
     public String getGetDog(Model model)
     {
-        model.addAttribute("dog", new Dog(0, "", "", "", 0, null));
+        model.addAttribute("dog", new Dog(0, "", "", "", 0, null, false));
         return "getDog";
     }
 
