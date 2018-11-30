@@ -83,6 +83,7 @@ public class DogController {
         for(int i = 0; i < ids.size(); ++i)
         {
             dogs[i] = database.getDog(ids.get(i));
+            System.out.println(dogs[i].getIdNumber());
         }
         model.addAttribute("dogs", dogs);
 

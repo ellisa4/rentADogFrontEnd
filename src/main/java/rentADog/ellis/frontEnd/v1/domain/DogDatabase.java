@@ -115,6 +115,16 @@ public class DogDatabase {
 
     }
 
+    public void changeReservedBy(int dogID, String clientName)
+    {
+        getDog(dogID).setReservedBy(clientName);
+    }
+
+    public String getReservedBy(int dogID)
+    {
+        return getDog(dogID).getReservedBy();
+    }
+
     /**
      * WILL ADD PERSONALITY TO FUTURE IMPLIMENTATIONS
      public void addPersonality(int idNumber, String trait)

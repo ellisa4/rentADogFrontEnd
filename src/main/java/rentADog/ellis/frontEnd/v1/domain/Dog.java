@@ -15,6 +15,7 @@ public class Dog {
     private String name;
     private byte[] image;
     private boolean available;
+    private String reservedBy;
 
     /**
     public Dog(int idNumber, String name, String gender, String breed, int age, Blob image) {
@@ -114,5 +115,13 @@ public class Dog {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public String getReservedBy() {
+        return reservedBy;
+    }
+
+    public void setReservedBy(String reservedBy) {
+        this.reservedBy = reservedBy;
     }
 }
