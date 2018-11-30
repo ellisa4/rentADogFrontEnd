@@ -3,6 +3,8 @@ package rentADog.ellis.frontEnd.v1.controller;
 import javax.imageio.ImageIO;
 import java.io.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -73,11 +75,13 @@ public class DogController {
     @RequestMapping(value = "/allDogs", method = RequestMethod.GET)
     public String getAllDogs(Model model)
     {
-        int[] ids = database.getAllIDs();
-        Dog[] dogs = {};
-        for(int i = 0; i < ids.length; ++i)
+        ArrayList<Integer> ids = database.getAllIDs();
+        System.out.println(ids.size());
+        Dog[] dogs = new Dog[ids.size()];
+
+        for(int i = 0; i < ids.size(); ++i)
         {
-            dogs[i] = database.getDog(ids[i]);
+            dogs[i] = database.getDog(ids.get(i));
         }
         model.addAttribute("dogs", dogs);
 

@@ -2,8 +2,12 @@ package rentADog.ellis.frontEnd.v1.domain;
 
 import java.sql.ResultSet;
 import java.sql.*;
+import java.util.ArrayList;
+
 import rentADog.ellis.frontEnd.v1.drivers.sqlConnector;
 import rentADog.ellis.frontEnd.v1.domain.Dog;
+
+import javax.annotation.processing.SupportedSourceVersion;
 
 public class DogDatabase {
     private Connection conn;
@@ -24,17 +28,17 @@ public class DogDatabase {
         }
     }
 
-    public int[] getAllIDs()
+    public ArrayList<Integer> getAllIDs()
     {
-        int[] returnMe = {};
+        ArrayList<Integer> returnMe = new ArrayList<Integer>();
         try {
             ResultSet result = stmt.executeQuery("SELECT * FROM dogs;");
-            int i=0;
             while (result.next())
             {
-                returnMe[i] = result.getInt("idNumber");
-                ++i;
+                returnMe.add(result.getInt("idNumber"));
             }
+            returnMe.remove(returnMe.size()-1);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
