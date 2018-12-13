@@ -28,19 +28,40 @@ public class DogController {
     }
 
     @RequestMapping(value = "/addDog", method = RequestMethod.POST)
-    public String postAddDog(@ModelAttribute Dog dog, @RequestParam("picturesIn")MultipartFile pictureIn)
+    public String postAddDog(@ModelAttribute Dog dog, @RequestParam("picturesIn")MultipartFile pictureIn) throws IOException
     {
-        database.addDog(
-                dog.getIdNumber(),
-                dog.getName(),
-                dog.getGender(),
-                dog.getBreed(),
-                dog.getAge(),
-                dog.getImage(),
-                dog.getAvailable()
-        );
+        InputStream inputStream = new BufferedInputStream(pictureIn.getInputStream());
 
-        System.out.println(pictureIn);
+        int i;
+        int size = 0;
+        while ((i = inputStream.read()) != -1)
+        {
+
+            System.out.println((byte)i);
+            size++;
+        }
+
+        System.out.println("size: "+ size);
+        byte[] temp = new byte[size];
+        size=0;
+
+        while ((i = inputStream.read()) != -1)
+        {
+            temp[size] = (byte)i;
+            size++;
+        }
+        dog.setImage(temp);
+
+            database.addDog(
+                    dog.getIdNumber(),
+                    dog.getName(),
+                    dog.getGender(),
+                    dog.getBreed(),
+                    dog.getAge(),
+                    dog.getImage(),
+                    dog.getAvailable()
+            );
+
 
         return "addedDog";
     }
