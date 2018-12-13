@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import rentADog.ellis.frontEnd.v1.domain.Dog;
 import rentADog.ellis.frontEnd.v1.domain.DogDatabase;
 
@@ -27,7 +28,7 @@ public class DogController {
     }
 
     @RequestMapping(value = "/addDog", method = RequestMethod.POST)
-    public String postAddDog(@ModelAttribute Dog dog)
+    public String postAddDog(@ModelAttribute Dog dog, @RequestParam("picturesIn")MultipartFile pictureIn)
     {
         database.addDog(
                 dog.getIdNumber(),
@@ -39,6 +40,7 @@ public class DogController {
                 dog.getAvailable()
         );
 
+        System.out.println(pictureIn);
 
         return "addedDog";
     }
